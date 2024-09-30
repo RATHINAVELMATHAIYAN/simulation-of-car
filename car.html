@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stimulation of the car</title>
+</head>
+<body style="background-image:url('roadbackground image.jpeg');background-image: no-repeat;background-size:cover">
+    <h1 style="color:white">
+        <center>please use the Navigation buttons to move the car</center>
+    </h1>
+    <form>
+        <center>
+            <input type="button" value="Start" onclick="start()"/>
+            <input type="button" value="Stop" onclick="stop()"/>
+            <input type="button" value="Reverse" onclick="reverse()"/>
+            <input type="button" value="Restart" onclick="init()"/>
+        </center>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <img id="myimg" src="car_image-removebg-preview.png".style>
+    </form>
+    <script>
+        var animation;
+        function init() {
+            img = document.getElementById("myimg");
+            img.style.position = 'absolute';
+            img.style.left = '0px';
+
+        }
+        window.onload = init;
+        function start() {
+            img.style.left = parseInt(img.style.left) + 10 + 'px';
+            animation = setTimeout(start, 50);
+        }
+        function reverse() {
+            img.style.left = parseInt(img.style.left) + -10 + 'px';
+            animation = setTimeout(reverse, 50);
+        }
+        function stop() {
+            clearTimeout(animation);
+            img.style.left = 'paused';
+        }
+    </script>
+</body>
+</html>
+
+
